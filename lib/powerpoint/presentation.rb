@@ -26,6 +26,10 @@ module Powerpoint
       @slides << Powerpoint::Slide::Blank.new(presentation: self, title: title, content: content)
     end
 
+    def add_bar_chart_slide(title, content = [])
+      @slides << Powerpoint::Slide::BarChart.new(presentation: self, title: title, content: content)
+    end
+
     def add_textual_slide(title, content = [])
       @slides << Powerpoint::Slide::Textual.new(presentation: self, title: title, content: content)
     end
