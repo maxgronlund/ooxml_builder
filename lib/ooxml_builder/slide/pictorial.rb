@@ -3,10 +3,10 @@ require 'fileutils'
 require 'fastimage'
 require 'erb'
 
-module Powerpoint
+module OoxmlBuilder
   module Slide
     class Pictorial
-      include Powerpoint::Util
+      include OoxmlBuilder::Util
 
     	attr_reader :image_name, :title, :coords, :image_path
 

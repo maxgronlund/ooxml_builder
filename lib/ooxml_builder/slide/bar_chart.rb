@@ -1,10 +1,10 @@
 require 'fileutils'
 require 'erb'
 
-module Powerpoint
+module OoxmlBuilder
   module Slide
     class BarChart
-      include Powerpoint::Util
+      include OoxmlBuilder::Util
 
       attr_reader :title, :content
 

@@ -1,4 +1,4 @@
-module Powerpoint
+module OoxmlBuilder
   def self.decompress_pptx(in_path, out_path)
     Zip::File.open(in_path) do |zip_file|
       zip_file.each do |f|
