@@ -4,7 +4,7 @@ describe 'Powerpoint parsing a sample PPTX file' do
   before(:all) do
     File.delete('./samples/pptx/sample.pptx') if File.exists? './samples/pptx/sample.pptx'
     @deck = Powerpoint::Presentation.new
-    #@deck.add_intro 'Bicycle Of the Mind', 'created by Steve Jobs'
+    @deck.add_intro 'Bicycle Of the Mind', 'created by Steve Jobs'
     @deck.add_blank_slide 'A1', ['B', 'C1']
     @deck.add_bar_chart_slide 'A1', ['B', 'C1']
     # @deck.add_textual_slide 'Why Mac?', ['Its cool!', 'Its light!']
