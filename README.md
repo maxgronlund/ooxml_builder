@@ -12,9 +12,11 @@ to test output
 
 ## Needs to be implemented
 
-- Needs to make the generation of Excel files dynamic, I.E, use a template
-  - We should generate excel file from an excel templates, just as we are using a powerpoint template to generate the .pptx
-  - We need to be able to specify what data is inserted in the excel slide dynamically, see an example how how this could be done in the specs
+
+- workbook.rb class: 
+  - Needs to make the generation of Excel files dynamic, I.E, use a template
+    - We should generate excel file from an excel templates, just as we are using a powerpoint template to generate the .pptx
+    - We need to be able to specify what data is inserted in the excel slide dynamically, see an example how how this could be done in the specs
 
 - Needs to support line and pie charts as well.
 
