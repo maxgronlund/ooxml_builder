@@ -10,8 +10,16 @@ require 'ooxml_builder/slide/picture_description'
 require 'ooxml_builder/compression'
 require 'ooxml_builder/presentation'
 
+# workbook stuff goes here
+require 'ooxml_builder/workbook'
+require 'ooxml_builder/api'
+
 module OoxmlBuilder
   ROOT_PATH = File.expand_path("../..", __FILE__)
   TEMPLATE_PATH = "#{ROOT_PATH}/template/"
   VIEW_PATH = "#{ROOT_PATH}/lib/ooxml_builder/views/"
+
+  def build_presentation(data)
+    Api.build_presentation(data)
+  end
 end
