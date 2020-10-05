@@ -7,10 +7,11 @@ module OoxmlBuilder
   class Presentation
     include OoxmlBuilder::Util
 
-    attr_reader :slides
+    attr_reader :slides, :charts
 
     def initialize
       @slides = []
+      @charts = []
     end
 
     def add_intro(title, subtitle = nil)
@@ -29,8 +30,7 @@ module OoxmlBuilder
 
 
     def add_bar_chart_slide(title, subtitle, content = {})
-
-      content[:chart] = OoxmlBuilder::Workbook.new(presentation: self, content: content)
+      @charts << OoxmlBuilder::Workbook.new(presentation: self, content: content)
       @slides << OoxmlBuilder::Slide::BarChart.new(presentation: self, title: title, subtitle: subtitle, content: content)
 
     end
@@ -72,6 +72,11 @@ module OoxmlBuilder
         # Save slides
         slides.each_with_index do |slide, index|
           slide.save(extract_path, index + 1)
+        end
+
+        # Save charts
+        charts.each_with_index do |chart, index|
+          chart.save(extract_path, index + 1)
         end
 
         # Create .pptx file

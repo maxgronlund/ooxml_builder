@@ -1,6 +1,6 @@
+require 'awesome_print'
 module OoxmlBuilder
   module Util
-
     def pixle_to_pt(px)
       px * 12700
     end

@@ -5,8 +5,8 @@ require 'awesome_print'
 describe 'OoxmlBuilder exporting a sample PPTX file' do
   before(:all) do
     File.delete('./samples/pptx/sample.pptx') if File.exists? './samples/pptx/sample.pptx'
-
-
+    # secure file is deleted before it's opened
+    sleep 1
   end
 
 
@@ -16,7 +16,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
 
     #   Chart slides
     #   We want to be able to specify data here, e.g. data: { 'Bar 1': 210, 'Bar 2': 420, 'Bar 3': 11 }
-    @deck.add_bar_chart_slide test_data['title'], test_data['sub_title'], test_data
+    @deck.add_bar_chart_slide test_data[:title], test_data[:subtitle], test_data
 
   #   Needs to be implemented:
   #   @deck.add_line_chart_slide data: {....}
