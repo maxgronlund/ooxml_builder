@@ -12,11 +12,11 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
 
   it 'Create a PPTX file successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-
+    test_data = TestFixture.bar_chart
 
     #   Chart slides
     #   We want to be able to specify data here, e.g. data: { 'Bar 1': 210, 'Bar 2': 420, 'Bar 3': 11 }
-    @deck.add_bar_chart_slide TestFixture.grap_chart
+    @deck.add_bar_chart_slide test_data['title'], test_data['sub_title'], test_data
 
   #   Needs to be implemented:
   #   @deck.add_line_chart_slide data: {....}
@@ -30,7 +30,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
   #   @deck.add_text_picture_slide('Text Pic Split', 'samples/images/sample_png.png', content = ['Here is a string', 'here is another'])
   #   @deck.add_picture_description_slide('Pic Desc', 'samples/images/sample_png.png', content = ['Here is a string', 'here is another'])
 
-  #   @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
+    @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
   end
 
   # it 'Create a .xlsx files in the embeddings folder' do

@@ -7,19 +7,15 @@ module OoxmlBuilder
     class BarChart
       include OoxmlBuilder::Util
 
-      attr_reader :title, :content, :work_sheet_data
+      attr_reader :title, :subtitle, :content
 
       def initialize(options={})
-        require_arguments [:title, :subtitle, :work_sheet_data], options
-
-
-
+        require_arguments [:title, :subtitle, :content], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
-
-
       end
 
       def save(extract_path, index)
+        ap self
         save_rel_xml(extract_path, index)
         save_slide_xml(extract_path, index)
       end

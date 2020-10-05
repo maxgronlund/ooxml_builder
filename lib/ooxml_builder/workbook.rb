@@ -9,30 +9,26 @@ module OoxmlBuilder
 
     attr_reader :work_sheets
 
-    def initialize
-      @sheets = []
-    end
-
-
-    def build_work_sheet(data)
-      file_name = "Microsoft_Excel_Worksheet" + data["index"].to_s + ".xlxs"
-      # work_sheets << data
-
-
-      data["_rel_tags"] = {"more_tage" => "fd"}
-
-      data
-    end
-
-
-
-
-    # Same as save from presenation.rb
-    def save(path)
-      # Render embedings here
-      # save in ppt/embedings/Microsoft_Excel_Worksheet[n].xlxs
+    def initialize(options={})
+      ap options
 
     end
 
+
+    def save(extract_path, index)
+        save_rel_xml(extract_path, index)
+        # save_chart_xml(extract_path, index)
+      end
+
+      def save_rel_xml(extract_path, index)
+        render_view('workbook_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
+      end
+      private :save_rel_xml
+
+      def save_chart_xml(extract_path, index)
+
+        # render_view('workbook_chart.xml.erb', "#{extract_path}/ppt/embedings/Microsoft_Excel_Worksheet#{index}.xml")
+      end
+      private :save_chart_xml
   end
 end
