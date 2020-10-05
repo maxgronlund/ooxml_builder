@@ -12,7 +12,7 @@ require 'ooxml_builder/presentation'
 
 # workbook stuff goes here
 require 'ooxml_builder/workbook'
-require 'ooxml_builder/api'
+
 
 module OoxmlBuilder
   ROOT_PATH = File.expand_path("../..", __FILE__)

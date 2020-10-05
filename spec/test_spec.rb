@@ -1,29 +1,22 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
+require 'awesome_print'
 
 describe 'OoxmlBuilder exporting a sample PPTX file' do
   before(:all) do
     File.delete('./samples/pptx/sample.pptx') if File.exists? './samples/pptx/sample.pptx'
-    @test_data = TestFixture.data
+
 
   end
 
-  it 'Create the presentation as a .pptx file' do
-    # Api.build_presentation(@test_data)
-    api = OoxmlBuilder::API.new
 
-    api.build_presentation(@test_data)
-  end
-
-  # it 'Create a PPTX file successfully.' do
-  #   @deck = OoxmlBuilder::Presentation.new
+  it 'Create a PPTX file successfully.' do
+    @deck = OoxmlBuilder::Presentation.new
 
 
-
-
-  #   Chart slides
-  #   We want to be able to specify data here, e.g. data: { 'Bar 1': 210, 'Bar 2': 420, 'Bar 3': 11 }
-  #   @deck.add_bar_chart_slide 'A1', ['B', 'C1']
+    #   Chart slides
+    #   We want to be able to specify data here, e.g. data: { 'Bar 1': 210, 'Bar 2': 420, 'Bar 3': 11 }
+    @deck.add_bar_chart_slide TestFixture.grap_chart
 
   #   Needs to be implemented:
   #   @deck.add_line_chart_slide data: {....}
@@ -38,7 +31,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
   #   @deck.add_picture_description_slide('Pic Desc', 'samples/images/sample_png.png', content = ['Here is a string', 'here is another'])
 
   #   @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
-  # end
+  end
 
   # it 'Create a .xlsx files in the embeddings folder' do
   #   puts "fo"

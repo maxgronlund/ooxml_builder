@@ -28,20 +28,11 @@ module OoxmlBuilder
     end
 
 
-    def add_bar_chart_slide(title, subtitle, work_sheet_data )
+    def add_bar_chart_slide(title, subtitle, content = {})
 
-      # data used for _rel files and to build the bar graph
-      ap work_sheet_data
+      content["chart"] = OoxmlBuilder::Workbook::Chart.new(presentation: self, content: content)
+      @slides << OoxmlBuilder::Slide::Textual.new(presentation: self, title: title, content: content)
 
-      @slides << OoxmlBuilder::Slide::BarChart
-        .new(
-          presentation: self,
-          title: title,
-          subtitle: subtitle,
-          work_sheet_data: work_sheet_data
-        )
-
-      # ap @slides
     end
 
     def add_textual_slide(title, content = [])
