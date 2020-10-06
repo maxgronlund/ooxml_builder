@@ -52,8 +52,10 @@ module OoxmlBuilder
     end
 
     def save(path)
+      ap path
       Dir.mktmpdir do |dir|
         extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+
 
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)
