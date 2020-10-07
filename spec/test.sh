@@ -6,7 +6,7 @@ cd ../
 rspec spec
 cd spec
 # Uncomment this line to inspect outcome
-#./unpack_output.sh
+./unpack_output.sh
 
 # Open file in application
 open ../samples/pptx/sample.pptx

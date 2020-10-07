@@ -18,7 +18,7 @@ module TestFixture
   def self.chart2
     {
       'Column1': 'Reach',
-      'male 18-24': 1000,
+      'male 18-24': 1250,
       'female 18-24': 2000,
       'male 25-34': 4000,
       'female 25-34': 2000,
