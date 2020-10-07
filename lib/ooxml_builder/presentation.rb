@@ -52,7 +52,7 @@ module OoxmlBuilder
     end
 
     def save(path)
-      ap path
+
       Dir.mktmpdir do |dir|
         extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
 
@@ -78,7 +78,7 @@ module OoxmlBuilder
 
         # Save charts
         charts.each_with_index do |chart, index|
-          chart.save(extract_path, index + 1)
+          chart.save("#{extract_path}", index + 1)
         end
 
         # Create .pptx file

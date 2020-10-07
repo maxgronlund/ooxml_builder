@@ -18,7 +18,7 @@ module TestFixture
   def self.chart2
     {
       'Column1': 'Reach',
-      'male 18-24': 3000,
+      'male 18-24': 1000,
       'female 18-24': 2000,
       'male 25-34': 4000,
       'female 25-34': 2000,
@@ -43,7 +43,8 @@ module TestFixture
       'subtitle': 'Spend',
       'type': 'graph',
       'style': style,
-      'data': chart1
+      'data': chart1,
+      'suffix': 'kr.'
     }
   end
 
@@ -54,7 +55,8 @@ module TestFixture
       'subtitle': 'Spend',
       'type': 'bar',
       'style': style,
-      'data': chart2
+      'data': chart2,
+      'suffix': 'kr.'
     }
   end
 end

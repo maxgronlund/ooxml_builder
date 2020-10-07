@@ -269,71 +269,41 @@
                             </c:ext>
                         </c:extLst>
                     </c:dLbls>
+
+                    <!-- labels beneath the bars -->
                     <c:cat>
                         <c:strRef>
                             <c:f>Sheet1!$A$2:$A$9</c:f>
                             <c:strCache>
-                                <c:ptCount val="8"/>
-                                <c:pt idx="0">
-                                    <c:v>male 18-24</c:v>
-                                </c:pt>
-                                <c:pt idx="1">
-                                    <c:v>female 18-24</c:v>
-                                </c:pt>
-                                <c:pt idx="2">
-                                    <c:v>male 25-34</c:v>
-                                </c:pt>
-                                <c:pt idx="3">
-                                    <c:v>female 25-34</c:v>
-                                </c:pt>
-                                <c:pt idx="4">
-                                    <c:v>male 35-44</c:v>
-                                </c:pt>
-                                <c:pt idx="5">
-                                    <c:v>female 35-44</c:v>
-                                </c:pt>
-                                <c:pt idx="6">
-                                    <c:v>male 45-54</c:v>
-                                </c:pt>
-                                <c:pt idx="7">
-                                    <c:v>female 45-54</c:v>
-                                </c:pt>
+                                <c:ptCount val="<%= rows.size %>"/>
+                                <% rows.each_with_index do | (k,v), i | %>
+                                    <c:pt idx="<%= i %>">
+                                        <c:v><%= k %></c:v>
+                                    </c:pt>
+                                <% end %>
                             </c:strCache>
                         </c:strRef>
                     </c:cat>
+                    <!-- end of labels -->
+
+                    <!-- the bars -->
                     <c:val>
                         <c:numRef>
                             <c:f>Sheet1!$B$2:$B$9</c:f>
                             <c:numCache>
-                                <c:formatCode>#,##0\ "kr."</c:formatCode>
-                                <c:ptCount val="8"/>
-                                <c:pt idx="0">
-                                    <c:v>3000</c:v>
-                                </c:pt>
-                                <c:pt idx="1">
-                                    <c:v>2000</c:v>
-                                </c:pt>
-                                <c:pt idx="2">
-                                    <c:v>4000</c:v>
-                                </c:pt>
-                                <c:pt idx="3">
-                                    <c:v>2000</c:v>
-                                </c:pt>
-                                <c:pt idx="4">
-                                    <c:v>5000</c:v>
-                                </c:pt>
-                                <c:pt idx="5">
-                                    <c:v>300</c:v>
-                                </c:pt>
-                                <c:pt idx="6">
-                                    <c:v>3600</c:v>
-                                </c:pt>
-                                <c:pt idx="7">
-                                    <c:v>899</c:v>
-                                </c:pt>
+                                <c:formatCode>#,##0\ "<%= suffix %>"</c:formatCode>
+                                <c:ptCount val="<%= rows.size %>"/>
+                                <% rows.each_with_index do | (k,v), i | %>
+                                    <c:pt idx="<%= i %>">
+                                        <c:v><%= v %></c:v>
+                                    </c:pt>
+                                <% end %>
                             </c:numCache>
                         </c:numRef>
                     </c:val>
+                    <!-- end of bars -->
+
+
                     <c:extLst>
                         <c:ext uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}"
                             xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart">

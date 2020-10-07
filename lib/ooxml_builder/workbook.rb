@@ -21,15 +21,28 @@ module OoxmlBuilder
     end
 
     def save_rel_xml(extract_path, index)
-      index = '1'
-      render_view('chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", {index: index})
+
+
+      index = '2'
+
+
+
+      render_view('chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
     end
     private :save_rel_xml
 
     def save_chart_xml(extract_path, index)
+      index = '2'
 
-      index = '1'
-      render_view('chart.xml.erb', "#{extract_path}/ppt/embeddings/Microsoft_Excel_Worksheet#{index}.xml")
+      # remove first row
+      @content[:data].delete(:Column1)
+
+      params = {rows: @content[:data], suffix: @content[:suffix]}
+
+      ap @content[:data].size
+
+      render_view('chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
+      # render_view('chart.xml.erb', "#{extract_path}/ppt/embeddings/Microsoft_Excel_Worksheet#{index}.xml")
     end
       private :save_chart_xml
   end
