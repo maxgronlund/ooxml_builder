@@ -23,14 +23,9 @@ module OoxmlBuilder
     private :save_rel_xml
 
     def save_chart_xml(extract_path, index)
-      # remove first row
       @content[:data].delete(:Column1)
       params = { rows: @content[:data], suffix: @content[:suffix] }
-
       render_view('chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
-
-
-      # render_view('chart.xml.erb', "#{extract_path}/ppt/embeddings/Microsoft_Excel_Worksheet#{index}.xml")
     end
       private :save_chart_xml
   end

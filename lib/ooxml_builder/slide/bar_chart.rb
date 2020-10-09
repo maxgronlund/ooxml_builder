@@ -21,8 +21,7 @@ module OoxmlBuilder
       end
 
       def save_rel_xml(extract_path, index)
-        # TODO: use index instead of 2
-        render_view('bar_chart_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", {index: 2})
+        render_view('bar_chart_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", {index: index})
       end
       private :save_rel_xml
 
