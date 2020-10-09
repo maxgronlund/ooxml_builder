@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sst
+    xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="10" uniqueCount="10">
+
+    <% data.each_with_index do | (k,v), i | %>
+        <si>
+            <t><%= k %></t>
+        </si>
+        <!-- dont ask my why? -->
+        <% if i == 0 %>
+            <si>
+                <t><%= v %></t>
+            </si>
+        <% end %>
+    <% end %>
+<!--
+    <si>
+        <t>Column1</t>
+    </si>
+    <si>
+        <t>Reach</t>
+    </si>
+    <si>
+        <t>male 18-24</t>
+    </si>
+    <si>
+        <t>female 18-24</t>
+    </si>
+    <si>
+        <t>male 25-34</t>
+    </si>
+    <si>
+        <t>female 25-34</t>
+    </si>
+    <si>
+        <t>male 35-44</t>
+    </si>
+    <si>
+        <t>female 35-44</t>
+    </si>
+    <si>
+        <t>male 45-54</t>
+    </si>
+    <si>
+        <t>female 45-54</t>
+    </si> -->
+</sst>
