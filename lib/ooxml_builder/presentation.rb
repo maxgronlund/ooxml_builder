@@ -83,7 +83,7 @@ module OoxmlBuilder
 
         # Create .pptx file
         File.delete(path) if File.exist?(path)
-        OoxmlBuilder.compress_pptx(extract_path, path)
+        OoxmlBuilder.compress(extract_path, path)
       end
 
       path
