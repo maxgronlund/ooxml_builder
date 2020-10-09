@@ -11,7 +11,7 @@ cd spec
 # ./unpack_worksheet.sh
 
 # Open file in application
-open ../samples/pptx/sample.pptx
+# open ../samples/pptx/sample.pptx
 
 
 
