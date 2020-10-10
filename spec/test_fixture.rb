@@ -9,7 +9,7 @@ module TestFixture
       'April, 2020': 22000,
       'July, 2020': 55000,
       'October, 2020': 15000,
-      'January, 2020': 500
+      'January, 2020': 5000
     }
 
 
@@ -40,7 +40,7 @@ module TestFixture
     {
       'version': 1.0,
       'title': 'Development',
-      'subtitle': 'Spend',
+      'subtitle': 'Research',
       'type': 'graph',
       'style': style,
       'data': chart1,
@@ -51,7 +51,7 @@ module TestFixture
   def self.bar_chart
     {
       'version': 1.0,
-      'title': 'Development',
+      'title': 'Demographic',
       'subtitle': 'Spend',
       'type': 'bar',
       'style': style,

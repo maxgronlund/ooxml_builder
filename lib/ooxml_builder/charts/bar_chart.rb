@@ -19,15 +19,16 @@ module OoxmlBuilder
       end
 
       def save_rel_xml(extract_path, index)
-        render_view('chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
+        render_view('bar/chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
       end
       private :save_rel_xml
 
       def save_chart_xml(extract_path, index)
         content = @content[:data].dup
         content.delete(:Column1)
-        params = { rows: content, suffix: @content[:suffix] }
-        render_view('chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
+        params = { rows: content, suffix: @content[:suffix], subtitle: @subtitle }
+
+        render_view('bar/chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
       end
         private :save_chart_xml
     end
