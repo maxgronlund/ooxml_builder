@@ -10,9 +10,11 @@ require 'ooxml_builder/compression'
 require 'ooxml_builder/presentation'
 
 
+require 'ooxml_builder/charts/graph_chart'
 require 'ooxml_builder/charts/bar_chart'
 
 
+require 'ooxml_builder/slide/graph'
 require 'ooxml_builder/slide/bar'
 require 'ooxml_builder/workbook'
 

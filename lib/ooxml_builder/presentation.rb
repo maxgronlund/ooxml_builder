@@ -32,7 +32,7 @@ module OoxmlBuilder
 
     def add_graph_chart_slide(title, subtitle, content = {})
       @workbooks << OoxmlBuilder::Workbook.new(presentation: self, content: content)
-      @charts << OoxmlBuilder::Chart.new(presentation: self, content: content)
+      @charts << OoxmlBuilder::Chart::Graph.new(presentation: self, content: content)
       @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, title: title, subtitle: subtitle, content: content)
     end
 
