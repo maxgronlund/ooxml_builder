@@ -36,7 +36,7 @@ module TestFixture
     }
   end
 
-  def self.grap_chart
+  def self.graph_chart
     {
       'version': 1.0,
       'title': 'Development',

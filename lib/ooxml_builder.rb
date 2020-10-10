@@ -1,7 +1,6 @@
 require "ooxml_builder/version"
 require 'ooxml_builder/util'
 require 'ooxml_builder/slide/intro'
-require 'ooxml_builder/slide/bar_chart'
 require 'ooxml_builder/slide/blank'
 require 'ooxml_builder/slide/textual'
 require 'ooxml_builder/slide/pictorial'
@@ -10,6 +9,9 @@ require 'ooxml_builder/slide/picture_description'
 require 'ooxml_builder/compression'
 require 'ooxml_builder/presentation'
 require 'ooxml_builder/chart'
+
+
+require 'ooxml_builder/slide/bar_chart'
 require 'ooxml_builder/workbook'
 
 

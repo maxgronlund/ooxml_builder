@@ -12,7 +12,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
 
   it 'Create a PPTX file successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-    test_data = TestFixture.bar_chart
+    test_data = TestFixture.graph_chart
 
     #   Chart slides
     #   We want to be able to specify data here, e.g. data: { 'Bar 1': 210, 'Bar 2': 420, 'Bar 3': 11 }
