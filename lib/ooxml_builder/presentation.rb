@@ -79,13 +79,14 @@ module OoxmlBuilder
 
         # Save charts
         charts.each_with_index do |chart, index|
-          chart.save("#{extract_path}", index + 1)
+          chart.save(extract_path, index + 1)
         end
 
         # Save workbooks
         workbooks.each_with_index do |workbook, index|
-          workbook.save("#{extract_path}", index + 1)
+          workbook.save(extract_path, index + 1)
         end
+        FileUtils.rm_rf("#{extract_path}/Microsoft_Excel_Worksheet")
 
         # Create .pptx file
         File.delete(path) if File.exist?(path)
