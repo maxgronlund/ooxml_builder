@@ -15,24 +15,31 @@ module OoxmlBuilder
       @workbooks = []
     end
 
-    def add_intro(title, subtitle = nil)
-      existing_intro_slide = @slides.select {|s| s.class == OoxmlBuilder::Slide::Intro}[0]
-      slide = OoxmlBuilder::Slide::Intro.new(presentation: self, title: title, subtitle: subtitle)
-      if existing_intro_slide
-        @slides[@slides.index(existing_intro_slide)] = slide
-      else
-        @slides.insert 0, slide
-      end
-    end
+    # def add_intro(title, subtitle = nil)
+    #   existing_intro_slide = @slides.select {|s| s.class == OoxmlBuilder::Slide::Intro}[0]
+    #   slide = OoxmlBuilder::Slide::Intro.new(presentation: self, title: title, subtitle: subtitle)
+    #   if existing_intro_slide
+    #     @slides[@slides.index(existing_intro_slide)] = slide
+    #   else
+    #     @slides.insert 0, slide
+    #   end
+    # end
 
-    def add_blank_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::Blank.new(presentation: self, title: title, content: content)
+    # def add_blank_slide(title, content = [])
+    #   @slides << OoxmlBuilder::Slide::Blank.new(presentation: self, title: title, content: content)
+    # end
+
+
+    def add_graph_chart_slide(title, subtitle, content = {})
+      @workbooks << OoxmlBuilder::Workbook.new(presentation: self, content: content)
+      @charts << OoxmlBuilder::Chart.new(presentation: self, content: content)
+      @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, title: title, subtitle: subtitle, content: content)
     end
 
 
     def add_bar_chart_slide(title, subtitle, content = {})
       @workbooks << OoxmlBuilder::Workbook.new(presentation: self, content: content)
-      @charts << OoxmlBuilder::Chart.new(presentation: self, content: content)
+      @charts << OoxmlBuilder::Chart::Bar.new(presentation: self, content: content)
       @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, title: title, subtitle: subtitle, content: content)
     end
 

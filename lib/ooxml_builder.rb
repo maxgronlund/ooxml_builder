@@ -8,7 +8,9 @@ require 'ooxml_builder/slide/text_picture_split'
 require 'ooxml_builder/slide/picture_description'
 require 'ooxml_builder/compression'
 require 'ooxml_builder/presentation'
-require 'ooxml_builder/chart'
+
+
+require 'ooxml_builder/charts/bar_chart'
 
 
 require 'ooxml_builder/slide/bar'
