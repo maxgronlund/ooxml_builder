@@ -6,7 +6,7 @@ cd ../
 rspec ./spec/test_spec.rb:13
 cd spec
 # Uncomment this line to inspect outcome
-./unpack_output.sh
+# ./unpack_output.sh
 
 # ./unpack_worksheet.sh
 
