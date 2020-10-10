@@ -11,7 +11,7 @@ require 'ooxml_builder/presentation'
 require 'ooxml_builder/chart'
 
 
-require 'ooxml_builder/slide/bar_chart'
+require 'ooxml_builder/slide/bar'
 require 'ooxml_builder/workbook'
 
 

@@ -33,7 +33,7 @@ module OoxmlBuilder
     def add_bar_chart_slide(title, subtitle, content = {})
       @workbooks << OoxmlBuilder::Workbook.new(presentation: self, content: content)
       @charts << OoxmlBuilder::Chart.new(presentation: self, content: content)
-      @slides << OoxmlBuilder::Slide::BarChart.new(presentation: self, title: title, subtitle: subtitle, content: content)
+      @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, title: title, subtitle: subtitle, content: content)
     end
 
     # def add_textual_slide(title, content = [])
