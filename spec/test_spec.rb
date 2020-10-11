@@ -14,8 +14,8 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
     @deck = OoxmlBuilder::Presentation.new
 
     # Graph slides
-    # graph_data = TestFixture.graph_chart
-    # @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
+    graph_data = TestFixture.graph_chart
+    @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
 
     #   Chart slides
     bar_data = TestFixture.bar_chart
