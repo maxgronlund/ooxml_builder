@@ -14,12 +14,12 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
     @deck = OoxmlBuilder::Presentation.new
 
     # Graph slides
-    graph_data = TestFixture.graph_chart
-    @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
+    # graph_data = TestFixture.graph_chart
+    # @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
 
     #   Chart slides
-    # bar_data = TestFixture.bar_chart
-    # @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
+    bar_data = TestFixture.bar_chart
+    @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
 
 
 
@@ -28,7 +28,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
   #   @deck.add_pie_chart_slide data: {....}
 
   #   Standard slides
-  #   @deck.add_intro 'Bicycle Of the Mind', 'created by Steve Jobs'
+    # @deck.add_intro 'Bicycle Of the Mind', 'created by Steve Jobs'
     # @deck.add_blank_slide 'A1', ['B', 'C1']
   #   @deck.add_textual_slide 'Why Mac?', ['Its cool!', 'Its light!']
   #   @deck.add_pictorial_slide 'JPG Logo', 'samples/images/sample_png.png'
