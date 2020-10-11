@@ -13,13 +13,15 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
   it 'Create a PPTX file successfully.' do
     @deck = OoxmlBuilder::Presentation.new
 
-    # Graph slides
+    # # Graph slides
     graph_data = TestFixture.graph_chart
     @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
+    # graph_data = TestFixture.bar_chart
+    # @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
 
     #   Chart slides
-    bar_data = TestFixture.bar_chart
-    @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
+    # bar_data = TestFixture.bar_chart
+    # @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
 
 
 
