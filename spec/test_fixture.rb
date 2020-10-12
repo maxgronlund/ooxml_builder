@@ -56,7 +56,7 @@ module TestFixture
       'type': 'bar',
       'style': style,
       'data': chart2,
-      'suffix': 'kr.'
+      'suffix': 'usd'
     }
   end
 end
