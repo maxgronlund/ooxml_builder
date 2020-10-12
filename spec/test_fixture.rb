@@ -9,8 +9,7 @@ module TestFixture
       'April, 2020': 22000,
       'July, 2020': 55000,
       'October, 2020': 15000,
-      'January, 2020': 5000,
-      'February, 2021': 5000
+      'January, 2020': 5000
     }
 
 
@@ -41,7 +40,7 @@ module TestFixture
     {
       'version': 1.0,
       'title': 'Development',
-      'subtitle': 'Research',
+      'subtitle': 'Reach',
       'type': 'graph',
       'style': style,
       'data': chart1,
