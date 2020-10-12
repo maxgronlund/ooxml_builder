@@ -16,6 +16,7 @@ require 'ooxml_builder/charts/bar_chart'
 
 require 'ooxml_builder/slide/graph'
 require 'ooxml_builder/slide/bar'
+require 'ooxml_builder/slide/insights'
 require 'ooxml_builder/workbook'
 
 

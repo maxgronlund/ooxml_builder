@@ -30,15 +30,18 @@ module OoxmlBuilder
       @slides << OoxmlBuilder::Slide::Blank.new(presentation: self, title: title, content: content)
     end
 
-
     def add_graph_chart_slide(title, subtitle, content = {})
       @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, title: title, subtitle: subtitle, content: content)
       @charts += 1
     end
 
-
     def add_bar_chart_slide(title, subtitle, content = {})
       @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, title: title, subtitle: subtitle, content: content)
+      @charts += 1
+    end
+
+    def add_insights_slide(title, subtitle, content = {})
+      @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, title: title, subtitle: subtitle, content: content)
       @charts += 1
     end
 

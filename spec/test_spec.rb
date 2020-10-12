@@ -23,6 +23,13 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
     @deck.save 'samples/pptx/sample.pptx'
   end
 
+  it 'Create a PPTX file with a key insights successfully.' do
+    @deck = OoxmlBuilder::Presentation.new
+    key_insights_data = TestFixture.key_insights
+    @deck.add_insights_slide key_insights_data[:title], key_insights_data[:subtitle], key_insights_data
+    @deck.save 'samples/pptx/sample.pptx'
+  end
+
   it 'Create a PPTX file with all slides successfully.' do
     @deck = OoxmlBuilder::Presentation.new
 
