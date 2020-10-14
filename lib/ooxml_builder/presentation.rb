@@ -40,6 +40,11 @@ module OoxmlBuilder
       @charts += 1
     end
 
+    def add_results_slide(title, subtitle, content = {})
+      @slides << OoxmlBuilder::Slide::Results.new(presentation: self, title: title, subtitle: subtitle, content: content)
+      @charts += 1
+    end
+
     def add_insights_slide(title, subtitle, content = {})
       @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, title: title, subtitle: subtitle, content: content)
       @charts += 1
@@ -62,10 +67,8 @@ module OoxmlBuilder
     end
 
     def save(path)
-
       Dir.mktmpdir do |dir|
         extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
-
 
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)

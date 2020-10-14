@@ -12,29 +12,39 @@ module TestFixture
     }
   end
 
-  def self.bar_data
-    {
-      'Column1': 'Reach',
-      'male 18-24': 1250,
-      'female 18-24': 2000,
-      'male 25-34': 4000,
-      'female 25-34': 2000,
-      'male 35-44': 5000,
-      'female 35-44': 300,
-      'male 45-54': 3600,
-      'female 45-54': 899
-    }
-  end
-
   def self.graph_chart
     {
       'version': 1.0,
       'title': 'Développement',
       'subtitle': 'Atteindre',
       'period': 'Durée de vie',
-      'type': 'graph',
       'data': graph_data,
       'suffix': '€.'
+    }
+  end
+
+  def self.bar_data
+    {
+      'Column1': 'Reach',
+      'männlich 18-24': 1250,
+      'weiblich 18-24': 2000,
+      'männlich 25-34': 4000,
+      'weiblich 25-34': 2000,
+      'männlich 35-44': 5000,
+      'weiblich 35-44': 300,
+      'männlich 45-54': 3600,
+      'weiblich 45-54': 899
+    }
+  end
+
+  def self.bar_chart
+    {
+      'version': 1.0,
+      'title': 'Demographisch',
+      'subtitle': 'Verbringen',
+      'period': 'Lebenszeit',
+      'data': bar_data,
+      'suffix': 'EUR.'
     }
   end
 
@@ -48,27 +58,36 @@ module TestFixture
     ]
   end
 
-  def self.bar_chart
-    {
-      'version': 1.0,
-      'title': 'Demographisch',
-      'subtitle': 'Verbringen',
-      'period': 'Lebenszeit',
-      'type': 'bar',
-      'data': bar_data,
-      'suffix': 'EUR.'
-    }
-  end
-
   def self.key_insights
     {
       'version': 1.0,
       'title': 'Key insights',
       'subtitle': 'Spend',
       'period': 'Lifetime',
-      'type': 'key_insights',
       'data': key_insights_data,
       'suffix': 'EUR'
+    }
+  end
+
+  def self.results_data
+    [
+      { 'title': 'Spend', 'img': 'sack-dollar', 'cur-val': 5008, 'prev-val': 1000 },
+      { 'title': 'Reach', 'img': 'users', 'cur-val': 8631, 'prev-val': 9632 },
+      { 'title': 'Frequency', 'img': 'rotating-arrows', 'cur-val': 2.34, 'prev-val': 3.31 },
+      { 'title': 'CPC', 'img': 'dollar-arrow', 'cur-val': 5008, 'prev-val': 1000 },
+      { 'title': 'App Installs', 'img': 'app-install', 'cur-val': 543, 'prev-val': 654 },
+      { 'title': 'Cost per App Install', 'img': 'dollar-app-install', 'cur-val': 75, 'prev-val': 85 }
+    ]
+  end
+
+  def self.results
+    {
+      'version': 1.0,
+      'title': 'Results',
+      'subtitle': '',
+      'period': 'As long as you like',
+      'data': results_data,
+      'suffix': 'Yen'
     }
   end
 end
