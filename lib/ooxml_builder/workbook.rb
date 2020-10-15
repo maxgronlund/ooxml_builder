@@ -26,18 +26,18 @@ module OoxmlBuilder
     end
 
     def save_shared_strings(extract_path, index)
-      render_view('graph/workbook/shared_strings.xml.erb', "#{extract_path}/xl/sharedStrings.xml", data: @content[:data])
+      render_view('workbook/shared_strings.xml.erb', "#{extract_path}/xl/sharedStrings.xml", data: @content[:data])
     end
     private :save_shared_strings
 
     def save_table(extract_path, index)
       ids = @content[:data].first
-      render_view('graph/workbook/table.xml.erb', "#{extract_path}/xl/tables/table1.xml", id1: ids.first, id2: ids.last, rows: @content[:data].size)
+      render_view('workbook/table.xml.erb', "#{extract_path}/xl/tables/table1.xml", id1: ids.first, id2: ids.last, rows: @content[:data].size)
     end
     private :save_table
 
     def save_sheet(extract_path, indes)
-      render_view('graph/workbook/sheet.xml.erb', "#{extract_path}/xl/worksheets/sheet1.xml", data: @content[:data])
+      render_view('workbook/sheet.xml.erb', "#{extract_path}/xl/worksheets/sheet1.xml", data: @content[:data])
     end
 
     def compress(extract_path, index)

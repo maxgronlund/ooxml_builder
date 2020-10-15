@@ -28,7 +28,7 @@ module OoxmlBuilder
 
       def save_rel_xml(extract_path, index)
         render_view(
-          'chart_slide_rel.xml.erb',
+          'bar/slide_rel.xml.erb',
           "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels",
           index: index
         )
@@ -36,7 +36,7 @@ module OoxmlBuilder
 
       def save_slide_xml(extract_path, index)
         render_view(
-          'chart_slide.xml.erb',
+          'bar/slide.xml.erb',
           "#{extract_path}/ppt/slides/slide#{index}.xml",
           title: @title, subtitle: @subtitle, index: index, period: @content[:period]
         )
