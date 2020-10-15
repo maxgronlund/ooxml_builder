@@ -12,14 +12,14 @@ module TestFixture
     }
   end
 
-  def self.graph_chart
+  def self.graph
     {
       'version': 1.0,
       'title': 'Développement',
       'subtitle': 'Atteindre',
       'period': 'Durée de vie',
       'data': graph_data,
-      'suffix': '€.'
+      'reach': '97.000'
     }
   end
 
@@ -37,7 +37,7 @@ module TestFixture
     }
   end
 
-  def self.bar_chart
+  def self.bar
     {
       'version': 1.0,
       'title': 'Demographisch',
@@ -48,7 +48,7 @@ module TestFixture
     }
   end
 
-  def self.key_insights_data
+  def self.insights_data
     [
       {'title': 'Demographic', 'img': 'male', 'subtitle': 'Male 25-34', 'spend': 1368},
       {'title': 'Device', 'img': 'mobile', 'subtitle': 'Mobile app', 'spend': 4443},
@@ -58,13 +58,13 @@ module TestFixture
     ]
   end
 
-  def self.key_insights
+  def self.insights
     {
       'version': 1.0,
       'title': 'Key insights',
       'subtitle': 'Spend',
       'period': 'Lifetime',
-      'data': key_insights_data,
+      'data': insights_data,
       'suffix': 'EUR'
     }
   end

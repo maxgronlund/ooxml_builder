@@ -62,7 +62,7 @@
                 </a:solidFill>
                 <a:latin typeface="Nunito Sans" pitchFamily="2" charset="77"/>
               </a:rPr>
-              <a:t>97.000</a:t>
+              <a:t><%= reach %></a:t>
             </a:r>
           </a:p>
         </c:rich>
@@ -196,7 +196,6 @@
           </c:dLbls>
           <c:cat>
             <c:strRef>
-              <!-- reference to the sheet -->
               <c:f><%="Sheet1!$A$2:$A$#{rows.size+1}"%></c:f>
               <c:strCache>
                 <c:ptCount val="<%= rows.size.to_s %>"/>
@@ -210,7 +209,6 @@
           </c:cat>
           <c:val>
             <c:numRef>
-              <!-- reference to the sheet -->
               <c:f><%="Sheet1!$B$2:$B$#{rows.size+1}"%></c:f>
               <c:numCache>
                 <c:formatCode>_-* #,##0_-;\-* #,##0_-;_-* "-"??_-;_-@_-</c:formatCode>

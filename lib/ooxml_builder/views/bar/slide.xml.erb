@@ -65,13 +65,17 @@
             </a:extLst>
           </p:cNvPr>
           <p:cNvGraphicFramePr/>
-          <p:nvPr>
-            <p:extLst>
-              <p:ext uri="{D42A27DB-BD31-4B8C-83A1-F6EECF244321}">
-                <p14:modId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" val="2603647969"/>
-              </p:ext>
-            </p:extLst>
-          </p:nvPr>
+          <% if index == 1 %>
+            <p:nvPr>
+              <p:extLst>
+                <p:ext uri="{D42A27DB-BD31-4B8C-83A1-F6EECF244321}">
+                  <p14:modId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" val="2603647969"/>
+                </p:ext>
+              </p:extLst>
+            </p:nvPr>
+          <% else %>
+            <p:nvPr/>
+          <% end %>
         </p:nvGraphicFramePr>
         <p:xfrm>
           <a:off x="731837" y="2022285"/>
@@ -173,8 +177,8 @@
         </p:nvSpPr>
         <p:spPr>
           <a:xfrm>
-            <a:off x="10441857" y="1317585"/>
-            <a:ext cx="1018305" cy="246221"/>
+            <a:off x="9441857" y="1317585"/>
+            <a:ext cx="2018305" cy="246221"/>
           </a:xfrm>
           <a:prstGeom prst="rect">
             <a:avLst/>

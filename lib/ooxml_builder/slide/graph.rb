@@ -1,6 +1,5 @@
 require 'fileutils'
 require 'erb'
-require 'awesome_print'
 
 module OoxmlBuilder
   module Slide
@@ -24,10 +23,11 @@ module OoxmlBuilder
         @chart.save(extract_path, index)
       end
 
+      private
+
       def save_rel_xml(extract_path, index)
         render_view('graph/slide_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", {index: index})
       end
-      private :save_rel_xml
 
       def save_slide_xml(extract_path, index)
         render_view(
@@ -36,8 +36,6 @@ module OoxmlBuilder
           title: @title, subtitle: @subtitle, index: index, period: @content[:period]
         )
       end
-      private :save_slide_xml
     end
   end
-
 end

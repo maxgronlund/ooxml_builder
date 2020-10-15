@@ -18,18 +18,26 @@ module OoxmlBuilder
         save_chart_xml(extract_path, index)
       end
 
+      private
+
       def save_rel_xml(extract_path, index)
         render_view('graph/chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
       end
-      private :save_rel_xml
 
       def save_chart_xml(extract_path, index)
         content = @content[:data].dup
         content.delete(:Column1)
-        params = { rows: content, suffix: @content[:suffix], subtitle: @content[:subtitle] }
+        params = {
+          rows: content,
+          suffix: @content[:suffix],
+          subtitle: @content[:subtitle],
+          reach: @content[:reach]
+        }
         render_view('graph/chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
       end
-        private :save_chart_xml
+
+      def reach
+      end
     end
   end
 end

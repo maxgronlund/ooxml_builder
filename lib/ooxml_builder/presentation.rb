@@ -16,20 +16,6 @@ module OoxmlBuilder
       # @workbooks = []
     end
 
-    def add_intro(title, subtitle = nil)
-      existing_intro_slide = @slides.select {|s| s.class == OoxmlBuilder::Slide::Intro}[0]
-      slide = OoxmlBuilder::Slide::Intro.new(presentation: self, title: title, subtitle: subtitle)
-      if existing_intro_slide
-        @slides[@slides.index(existing_intro_slide)] = slide
-      else
-        @slides.insert 0, slide
-      end
-    end
-
-    def add_blank_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::Blank.new(presentation: self, title: title, content: content)
-    end
-
     def add_graph_chart_slide(title, subtitle, content = {})
       @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, title: title, subtitle: subtitle, content: content)
       @charts += 1
@@ -50,21 +36,6 @@ module OoxmlBuilder
       @charts += 1
     end
 
-    def add_textual_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::Textual.new(presentation: self, title: title, content: content)
-    end
-
-    def add_pictorial_slide(title, image_path, coords = {})
-      @slides << OoxmlBuilder::Slide::Pictorial.new(presentation: self, title: title, image_path: image_path, coords: coords)
-    end
-
-    def add_text_picture_slide(title, image_path, content = [])
-      @slides << OoxmlBuilder::Slide::TextPicSplit.new(presentation: self, title: title, image_path: image_path, content: content)
-    end
-
-    def add_picture_description_slide(title, image_path, content = [])
-      @slides << OoxmlBuilder::Slide::DescriptionPic.new(presentation: self, title: title, image_path: image_path, content: content)
-    end
 
     def save(path)
       Dir.mktmpdir do |dir|
