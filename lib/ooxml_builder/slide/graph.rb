@@ -13,7 +13,7 @@ module OoxmlBuilder
         require_arguments [:title, :subtitle, :content], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
 
-        @workbook = OoxmlBuilder::Workbook::Graph.new(presentation: @presentation, content: content)
+        @workbook = OoxmlBuilder::Workbook.new(presentation: @presentation, content: content)
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
       end
 

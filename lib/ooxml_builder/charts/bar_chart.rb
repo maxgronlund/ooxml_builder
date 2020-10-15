@@ -27,7 +27,6 @@ module OoxmlBuilder
         content = @content[:data].dup
         content.delete(:Column1)
         params = { rows: content, suffix: @content[:suffix], subtitle: @subtitle }
-
         render_view('bar/chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
       end
         private :save_chart_xml
