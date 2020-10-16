@@ -21,7 +21,7 @@ describe 'Util' do
 
   it 'renders a template' do
     Dir.mktmpdir do |dir|
-      result = render_view('bar/chart_rel.xml.erb', "#{dir}/chart1.xml", index: 1)
+      result = render_view('chart/chart_rel.xml.erb', "#{dir}/chart1.xml", index: 1)
       expect(result.class).to be(File)
     end
   end

@@ -3,7 +3,7 @@
 rm -rf ../samples/pptx/*
 # Run rspec
 cd ../
-rspec ./spec/test_spec.rb:24
+rspec ./spec/presentation_spec.rb:26
 
 # Uncomment the following four lines to inspect outcome
 cd spec
