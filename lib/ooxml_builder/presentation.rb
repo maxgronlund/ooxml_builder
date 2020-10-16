@@ -10,7 +10,7 @@ module OoxmlBuilder
 
     def initialize
       @slides = []
-      @charts = 0
+      @charts = 1
     end
 
     def add_graph_chart_slide(content = {})
@@ -25,12 +25,10 @@ module OoxmlBuilder
 
     def add_results_slide(content = {})
       @slides << OoxmlBuilder::Slide::Results.new(presentation: self, content: content)
-      @charts += 1
     end
 
     def add_insights_slide(content = {})
       @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, content: content)
-      @charts += 1
     end
 
 
@@ -57,11 +55,13 @@ module OoxmlBuilder
           slide.save(extract_path, index + 1)
         end
 
+        # Save charts
         charts.times do |index|
           render_view('chart/colors.xml.erb', "#{extract_path}/ppt/charts/colors#{index}.xml", index: index)
           render_view('chart/style.xml.erb', "#{extract_path}/ppt/charts/style#{index}.xml", index: index)
         end
 
+        # Remove template
         FileUtils.rm_rf("#{extract_path}/Microsoft_Excel_Worksheet")
 
         # Create .pptx file
