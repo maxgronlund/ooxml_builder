@@ -1,7 +1,6 @@
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
-require 'awesome_print'
 
 module OoxmlBuilder
   module Chart
@@ -34,9 +33,6 @@ module OoxmlBuilder
           reach: @content[:reach]
         }
         render_view('graph/chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
-      end
-
-      def reach
       end
     end
   end

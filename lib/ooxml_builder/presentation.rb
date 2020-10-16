@@ -1,7 +1,6 @@
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
-require 'awesome_print'
 
 module OoxmlBuilder
   class Presentation

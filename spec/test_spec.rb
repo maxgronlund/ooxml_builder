@@ -1,6 +1,5 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
-require 'awesome_print'
 
 describe 'OoxmlBuilder exporting a sample PPTX file' do
   before(:all) do
@@ -36,8 +35,9 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
   it 'Create a PPTX file with all slides successfully.' do
     @deck = OoxmlBuilder::Presentation.new
     @deck.add_graph_chart_slide TestFixture.graph
-
-
+    @deck.add_bar_chart_slide TestFixture.bar
+    @deck.add_insights_slide TestFixture.insights
+    @deck.add_results_slide TestFixture.results
     @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
   end
 
