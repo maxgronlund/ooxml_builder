@@ -1,3 +1,4 @@
+require 'awesome_print'
 require 'fileutils'
 require 'erb'
 
@@ -44,3 +45,8 @@ module OoxmlBuilder
     end
   end
 end
+
+# rId6 arrow-red-down.emf
+# rId9 arrow-green-up.emf
+# rid12 arrow-gray-up
+# rid15 arrow-gray-down

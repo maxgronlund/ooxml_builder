@@ -1,3 +1,4 @@
+require 'awesome_print'
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
@@ -30,7 +31,6 @@ module OoxmlBuilder
     def add_insights_slide(content = {})
       @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, content: content)
     end
-
 
     def save(path)
       Dir.mktmpdir do |dir|
@@ -70,10 +70,6 @@ module OoxmlBuilder
       end
 
       path
-    end
-
-    def file_types
-      slides.map {|slide| slide.file_type if slide.respond_to? :file_type }.compact.uniq
     end
   end
 end
