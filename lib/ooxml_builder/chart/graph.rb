@@ -34,6 +34,10 @@ module OoxmlBuilder
         }
         render_view('graph/chart.xml.erb', "#{extract_path}/ppt/charts/chart#{index}.xml", params)
       end
+
+      def save_colors(extract_path, index)
+        render_view('chart/colors.xml.erb', "#{extract_path}/ppt/charts/colors#{index}.xml", index: index)
+      end
     end
   end
 end
