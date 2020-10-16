@@ -25,12 +25,12 @@ module OoxmlBuilder
       private
 
       def save_rel_xml(extract_path, index)
-        render_view('graph/slide_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", {index: index})
+        render_view('slide/slide_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", {index: index})
       end
 
       def save_slide_xml(extract_path, index)
         render_view(
-          'graph/slide.xml.erb',
+          'slide/slide.xml.erb',
           "#{extract_path}/ppt/slides/slide#{index}.xml",
           title: @content[:title], subtitle: @content[:subtitle], index: index, period: @content[:period]
         )

@@ -20,7 +20,7 @@ module OoxmlBuilder
       private
 
       def save_rel_xml(extract_path, index)
-        render_view('bar/chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
+        render_view('chart/chart_rel.xml.erb', "#{extract_path}/ppt/charts/_rels/chart#{index}.xml.rels", index: index)
       end
 
       def save_chart_xml(extract_path, index)

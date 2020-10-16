@@ -6,8 +6,6 @@ module OoxmlBuilder
   class Workbook
     include OoxmlBuilder::Util
 
-    # attr_reader :work_sheets
-
     def initialize(options={})
       require_arguments [:content], options
       options.each { |k, v| instance_variable_set("@#{k}", v) }
@@ -24,16 +22,16 @@ module OoxmlBuilder
       compress(to_path, index)
     end
 
+    private
+
     def save_shared_strings(extract_path, index)
       render_view('workbook/shared_strings.xml.erb', "#{extract_path}/xl/sharedStrings.xml", data: @content[:data])
     end
-    private :save_shared_strings
 
     def save_table(extract_path, index)
       ids = @content[:data].first
       render_view('workbook/table.xml.erb', "#{extract_path}/xl/tables/table1.xml", id1: ids.first, id2: ids.last, rows: @content[:data].size)
     end
-    private :save_table
 
     def save_sheet(extract_path, indes)
       render_view('workbook/sheet.xml.erb', "#{extract_path}/xl/worksheets/sheet1.xml", data: @content[:data])
@@ -43,6 +41,5 @@ module OoxmlBuilder
       OoxmlBuilder.compress(extract_path, "#{extract_path}.xlsx")
       FileUtils.rm_rf(extract_path)
     end
-    private :compress
   end
 end
