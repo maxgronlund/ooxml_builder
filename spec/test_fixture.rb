@@ -71,12 +71,12 @@ module TestFixture
 
   def self.results_data
     [
-      { 'title': 'Spend', 'img': 'sack-dollar', 'cur-val': 5008, 'prev-val': 1000, arrow: 'red-up'},
-      { 'title': 'Reach', 'img': 'users', 'cur-val': 8631, 'prev-val': 9632, arrow: 'gray-down' },
-      { 'title': 'Frequency', 'img': 'rotating-arrows', 'cur-val': 2.34, 'prev-val': 3.31, arrow: 'green-down' },
-      { 'title': 'CPC', 'img': 'dollar-arrow', 'cur-val': 5008, 'prev-val': 1000, arrow: 'gray-down' },
-      { 'title': 'App Installs', 'img': 'app-install', 'cur-val': 543, 'prev-val': 654, arrow: 'down', arrow: 'red-up'},
-      { 'title': 'Cost per App Install', 'img': 'dollar-app-install', 'cur-val': 75, 'prev-val': 85, arrow: 'down', arrow: 'red-down'}
+      { 'title': 'Spend', 'img': 'sack-dollar', 'cur_val': 5008, 'prev_val': 1000, arrow: 'green-up'},
+      { 'title': 'Reach', 'img': 'users', 'cur_val': 8631, 'prev_val': 9632, arrow: 'gray-up' },
+      { 'title': 'Frequency', 'img': 'rotating-arrows', 'cur_val': 2.34, 'prev_val': 3.31, arrow: 'green-up' },
+      { 'title': 'CPC', 'img': 'dollar-arrow', 'cur_val': 5008, 'prev_val': 1000, arrow: 'gray-down' },
+      { 'title': 'App Installs', 'img': 'app-install', 'cur_val': 543, 'prev_val': 654, arrow: 'down', arrow: 'red-down'},
+      { 'title': 'Cost per App Install', 'img': 'dollar-app-install', 'cur_val': 75, 'prev_val': 85, arrow: 'down', arrow: 'red-down'}
     ]
   end
 
