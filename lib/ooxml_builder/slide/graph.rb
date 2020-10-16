@@ -6,12 +6,11 @@ module OoxmlBuilder
     class Graph
       include OoxmlBuilder::Util
 
-      attr_reader :title, :subtitle, :content, :workbook, :chart
+      attr_reader :content, :workbook, :chart
 
       def initialize(options={})
-        require_arguments [:title, :subtitle, :content], options
+        require_arguments [:content], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
-
         @workbook = OoxmlBuilder::Workbook.new(presentation: @presentation, content: content)
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
       end
@@ -33,7 +32,7 @@ module OoxmlBuilder
         render_view(
           'graph/slide.xml.erb',
           "#{extract_path}/ppt/slides/slide#{index}.xml",
-          title: @title, subtitle: @subtitle, index: index, period: @content[:period]
+          title: @content[:title], subtitle: @content[:subtitle], index: index, period: @content[:period]
         )
       end
     end

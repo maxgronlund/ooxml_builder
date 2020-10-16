@@ -5,7 +5,6 @@
 
 
 ## MINOR UPDATES
-1. No deed for title and subtitle in presentation.rb.
 2. Remove awesome_print
 4. Check code with hound
 

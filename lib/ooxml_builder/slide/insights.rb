@@ -1,16 +1,15 @@
 require 'fileutils'
 require 'erb'
-require 'awesome_print'
 
 module OoxmlBuilder
   module Slide
     class Insights
       include OoxmlBuilder::Util
 
-      attr_reader :title, :subtitle, :content, :workbook
+      attr_reader :content, :workbook
 
       def initialize(options={})
-        require_arguments [:title, :subtitle, :content], options
+        require_arguments [:content], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
       end
@@ -35,8 +34,8 @@ module OoxmlBuilder
         render_view(
           'insights/slide.xml.erb', "#{extract_path}/ppt/slides/slide#{index}.xml",
           {
-            title: @title,
-            subtitle: @subtitle,
+            title: @content[:title],
+            subtitle: @content[:subtitle],
             period: @content[:period],
             index: index,
             columns: columns,

@@ -12,27 +12,25 @@ module OoxmlBuilder
     def initialize
       @slides = []
       @charts = 0
-      # @charts = []
-      # @workbooks = []
     end
 
-    def add_graph_chart_slide(title, subtitle, content = {})
-      @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, title: title, subtitle: subtitle, content: content)
+    def add_graph_chart_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, content: content)
       @charts += 1
     end
 
-    def add_bar_chart_slide(title, subtitle, content = {})
-      @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, title: title, subtitle: subtitle, content: content)
+    def add_bar_chart_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, content: content)
       @charts += 1
     end
 
-    def add_results_slide(title, subtitle, content = {})
-      @slides << OoxmlBuilder::Slide::Results.new(presentation: self, title: title, subtitle: subtitle, content: content)
+    def add_results_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Results.new(presentation: self, content: content)
       @charts += 1
     end
 
-    def add_insights_slide(title, subtitle, content = {})
-      @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, title: title, subtitle: subtitle, content: content)
+    def add_insights_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, content: content)
       @charts += 1
     end
 

@@ -11,46 +11,32 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
 
   it 'Create a PPTX file with a line graph successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-    graph_data = TestFixture.graph
-    @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
+    @deck.add_graph_chart_slide TestFixture.graph
     @deck.save 'samples/pptx/sample.pptx'
   end
 
   it 'Create a PPTX file with a bar braph successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-    bar_data = TestFixture.bar
-    @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
+    @deck.add_bar_chart_slide TestFixture.bar
     @deck.save 'samples/pptx/sample.pptx'
   end
 
   it 'Create a PPTX file with a key insights successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-    key_insights_data = TestFixture.insights
-    @deck.add_insights_slide key_insights_data[:title], key_insights_data[:subtitle], key_insights_data
+    @deck.add_insights_slide TestFixture.insights
     @deck.save 'samples/pptx/sample.pptx'
   end
 
   it 'Create a PPTX file with a results successfully.' do
     @deck = OoxmlBuilder::Presentation.new
-    results_data = TestFixture.results
-    @deck.add_results_slide results_data[:title], results_data[:subtitle], results_data
+    @deck.add_results_slide TestFixture.results
     @deck.save 'samples/pptx/sample.pptx'
   end
 
   it 'Create a PPTX file with all slides successfully.' do
     @deck = OoxmlBuilder::Presentation.new
+    @deck.add_graph_chart_slide TestFixture.graph
 
-    graph_data = TestFixture.graph
-    @deck.add_graph_chart_slide graph_data[:title], graph_data[:subtitle], graph_data
-
-    bar_data = TestFixture.bar
-    @deck.add_bar_chart_slide bar_data[:title], bar_data[:subtitle], bar_data
-
-    key_insights_data = TestFixture.insights
-    @deck.add_insights_slide key_insights_data[:title], key_insights_data[:subtitle], key_insights_data
-
-    results_data = TestFixture.results
-    @deck.add_results_slide results_data[:title], results_data[:subtitle], results_data
 
     @deck.save 'samples/pptx/sample.pptx' # Examine the PPTX file
   end
