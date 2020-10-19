@@ -75,8 +75,8 @@ module TestFixture
       { 'title': 'Reach', 'img': 'users', 'cur_val': 8631, 'prev_val': 9632, arrow: 'gray-up' },
       { 'title': 'Frequency', 'img': 'rotating-arrows', 'cur_val': 2.34, 'prev_val': 3.31, arrow: 'green-up' },
       { 'title': 'CPC', 'img': 'dollar-arrow', 'cur_val': 5008, 'prev_val': 1000, arrow: 'gray-down' },
-      { 'title': 'App Installs', 'img': 'app-install', 'cur_val': 543, 'prev_val': 654, arrow: 'down', arrow: 'red-down'},
-      { 'title': 'Cost per App Install', 'img': 'dollar-app-install', 'cur_val': 75, 'prev_val': 85, arrow: 'down', arrow: 'red-down'}
+      { 'title': 'App Installs', 'img': 'app-install', 'cur_val': 543, 'prev_val': 654, arrow: 'red-down'},
+      { 'title': 'Cost per App Install', 'img': 'dollar-app-install', 'cur_val': 75, 'prev_val': 85, arrow: 'down'}
     ]
   end
 
