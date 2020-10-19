@@ -3,15 +3,17 @@ require_relative 'test_fixture.rb'
 
 
 describe 'suport for graphs ' do
+  before(:all) do
+    @presentation = double
+  end
+
   it 'create a graph chart' do
-    presentation = double
-    graph = OoxmlBuilder::Chart::Graph.new(presentation: presentation, content: TestFixture.graph)
+    graph = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: TestFixture.graph)
     expect(graph.class).to be(OoxmlBuilder::Chart::Graph)
   end
 
   it 'save a graph chart' do
-    presentation = double
-    graph = OoxmlBuilder::Chart::Graph.new(presentation: presentation, content: TestFixture.graph)
+    graph = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: TestFixture.graph)
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
@@ -21,14 +23,12 @@ describe 'suport for graphs ' do
   end
 
   it 'create a bar chart' do
-    presentation = double
-    bar = OoxmlBuilder::Chart::Bar.new(presentation: presentation, content: TestFixture.bar)
-    expect(bar.class).to be(OoxmlBuilder::Slide::Bar)
+    bar = OoxmlBuilder::Chart::Bar.new(presentation: @presentation, content: TestFixture.bar)
+    expect(bar.class).to be(OoxmlBuilder::Chart::Bar)
   end
 
   it 'save a bar chart' do
-    presentation = double
-    bar = OoxmlBuilder::Chart::Bar.new(presentation: presentation, content: TestFixture.bar)
+    bar = OoxmlBuilder::Chart::Bar.new(presentation: @presentation, content: TestFixture.bar)
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
