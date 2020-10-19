@@ -11,7 +11,6 @@ module OoxmlBuilder
       def initialize(options = {})
         require_arguments [:content], options
         options.each { |k, v| instance_variable_set("@#{k}", v) }
-        ap images
       end
 
       def save(extract_path, index)

@@ -1,4 +1,3 @@
-require 'awesome_print'
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
