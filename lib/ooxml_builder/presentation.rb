@@ -6,44 +6,29 @@ module OoxmlBuilder
   class Presentation
     include OoxmlBuilder::Util
 
-    attr_reader :slides
+    attr_reader :slides, :charts
 
     def initialize
       @slides = []
+      @charts = 1
     end
 
-    def add_intro(title, subtitle = nil)
-      existing_intro_slide = @slides.select {|s| s.class == OoxmlBuilder::Slide::Intro}[0]
-      slide = OoxmlBuilder::Slide::Intro.new(presentation: self, title: title, subtitle: subtitle)
-      if existing_intro_slide
-        @slides[@slides.index(existing_intro_slide)] = slide
-      else
-        @slides.insert 0, slide
-      end
+    def add_graph_chart_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Graph.new(presentation: self, content: content)
+      @charts += 1
     end
 
-    def add_blank_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::Blank.new(presentation: self, title: title, content: content)
+    def add_bar_chart_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Bar.new(presentation: self, content: content)
+      @charts += 1
     end
 
-    def add_bar_chart_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::BarChart.new(presentation: self, title: title, content: content)
+    def add_results_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Results.new(presentation: self, content: content)
     end
 
-    def add_textual_slide(title, content = [])
-      @slides << OoxmlBuilder::Slide::Textual.new(presentation: self, title: title, content: content)
-    end
-
-    def add_pictorial_slide(title, image_path, coords = {})
-      @slides << OoxmlBuilder::Slide::Pictorial.new(presentation: self, title: title, image_path: image_path, coords: coords)
-    end
-
-    def add_text_picture_slide(title, image_path, content = [])
-      @slides << OoxmlBuilder::Slide::TextPicSplit.new(presentation: self, title: title, image_path: image_path, content: content)
-    end
-
-    def add_picture_description_slide(title, image_path, content = [])
-      @slides << OoxmlBuilder::Slide::DescriptionPic.new(presentation: self, title: title, image_path: image_path, content: content)
+    def add_insights_slide(content = {})
+      @slides << OoxmlBuilder::Slide::Insights.new(presentation: self, content: content)
     end
 
     def save(path)
@@ -69,16 +54,21 @@ module OoxmlBuilder
           slide.save(extract_path, index + 1)
         end
 
+        # Save charts
+        charts.times do |index|
+          render_view('chart/colors.xml.erb', "#{extract_path}/ppt/charts/colors#{index}.xml", index: index)
+          render_view('chart/style.xml.erb', "#{extract_path}/ppt/charts/style#{index}.xml", index: index)
+        end
+
+        # Remove template
+        FileUtils.rm_rf("#{extract_path}/Microsoft_Excel_Worksheet")
+
         # Create .pptx file
         File.delete(path) if File.exist?(path)
-        OoxmlBuilder.compress_pptx(extract_path, path)
+        OoxmlBuilder.compress(extract_path, path)
       end
 
       path
-    end
-
-    def file_types
-      slides.map {|slide| slide.file_type if slide.respond_to? :file_type }.compact.uniq
     end
   end
 end

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sst
+    xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="10" uniqueCount="<%= data.size + 1%>">
+
+    <% data.each_with_index do | (k,v), i | %>
+        <si>
+            <t><%= k %></t>
+        </si>
+        <% if i == 0 %>
+            <si>
+                <t><%= v %></t>
+            </si>
+        <% end %>
+    <% end %>
+</sst>
