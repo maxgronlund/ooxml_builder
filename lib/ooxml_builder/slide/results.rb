@@ -1,3 +1,4 @@
+require 'awesome_print'
 require 'fileutils'
 require 'erb'
 
@@ -12,6 +13,7 @@ module OoxmlBuilder
         require_arguments [:content], options
         options.each { |k, v| instance_variable_set("@#{k}", v) }
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
+        ap images
       end
 
       def save(extract_path, index)
@@ -25,7 +27,10 @@ module OoxmlBuilder
         render_view(
           'results/slide_rel.xml.erb',
           "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels",
-          index: index, results: @content[:data]
+          index: index,
+          results: @content[:data],
+          arrows: arrows,
+          images: images
         )
       end
 
@@ -40,42 +45,17 @@ module OoxmlBuilder
           results: @content[:data],
           suffix: @content[:suffix],
           arrows: arrows,
-          icons: icons
+          images: images
         )
       end
 
       def arrows
-        @content[:data].collect do |result|
-          case result[:arrow]
-          when "red-down"
-            'rId6'
-          when "green-up"
-            'rId9'
-          when "gray-up"
-            'rId12'
-          when "gray-down"
-            'rId15'
-          end
-        end
+        @content[:data].collect { |a| a[:arrow] }
       end
 
-      def icons
-        @content[:data].collect do |result|
-          case result[:img]
-          when 'sack-dollar'
-            4
-          when 'users'
-            7
-          when 'rotating-arrows'
-            10
-          when 'dollar-arrow'
-            13
-          when 'app-install'
-            16
-          when 'dollar-app-install'
-            18
-          end
-        end
+      def images
+        @content[:data].collect { |a| a[:img] }
+
       end
     end
   end
