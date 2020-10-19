@@ -1,5 +1,5 @@
 module OoxmlBuilder
-  def self.decompress_pptx(in_path, out_path)
+  def self.decompress(in_path, out_path)
     Zip::File.open(in_path) do |zip_file|
       zip_file.each do |f|
         f_path = File.join(out_path, f.name)
@@ -9,7 +9,7 @@ module OoxmlBuilder
     end
   end
 
-  def self.compress_pptx(in_path, out_path)
+  def self.compress(in_path, out_path)
     Zip::File.open(out_path, Zip::File::CREATE) do |zip_file|
       Dir.glob("#{in_path}/**/*", ::File::FNM_DOTMATCH).each do |path|
         zip_path = path.gsub("#{in_path}/","")

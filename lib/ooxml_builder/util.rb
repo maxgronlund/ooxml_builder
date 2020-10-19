@@ -1,6 +1,5 @@
 module OoxmlBuilder
   module Util
-
     def pixle_to_pt(px)
       px * 12700
     end
@@ -14,12 +13,14 @@ module OoxmlBuilder
       File.open(path, 'w') { |f| f << data }
     end
 
-    def read_template(filename)
-      File.read("#{OoxmlBuilder::VIEW_PATH}/#{filename}")
-    end
-
     def require_arguments(required_argements, argements)
       raise ArgumentError unless required_argements.all? {|required_key| argements.keys.include? required_key}
+    end
+
+    private
+
+    def read_template(filename)
+      File.read("#{OoxmlBuilder::VIEW_PATH}/#{filename}")
     end
 
     def copy_media(extract_path, image_path)
