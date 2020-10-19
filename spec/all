@@ -3,10 +3,11 @@
 rm -rf ../samples/pptx/*
 # Run rspec
 cd ../
-rspec ./spec/presentation_spec.rb:38
+rspec ./spec/presentation_spec.rb:37
 
 # Uncomment the following four lines to inspect outcome
 cd spec
+ls -al
 ./unpack_output.sh
 ./unpack_worksheet.sh
 open ../samples/pptx/sample.pptx

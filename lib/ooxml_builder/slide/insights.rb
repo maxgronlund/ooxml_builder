@@ -23,7 +23,7 @@ module OoxmlBuilder
         columns = @content[:data]
         render_view(
           'insights/slide_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels",
-          {index: index, columns: columns}
+          {index: index, content: content, columns: @content[:data], images: images}
         )
       end
       private :save_rel_xml
@@ -38,12 +38,17 @@ module OoxmlBuilder
             subtitle: @content[:subtitle],
             period: @content[:period],
             index: index,
-            columns: columns,
+            columns: @content[:data],
+            images: images,
             suffix: @content[:suffix]
           }
         )
       end
-      private :save_slide_xml
+
+      def images
+        @images ||= @content[:data].collect { |a| a[:img] }
+      end
+
     end
   end
 end

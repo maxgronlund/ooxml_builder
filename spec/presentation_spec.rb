@@ -1,6 +1,5 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
-require 'awesome_print'
 
 describe 'OoxmlBuilder exporting a sample PPTX file' do
   before(:all) do
@@ -17,7 +16,7 @@ describe 'OoxmlBuilder exporting a sample PPTX file' do
     expect(@presentation.slides.first.class).to be(OoxmlBuilder::Slide::Graph)
   end
 
-  it 'Create a PPTX file with a bar braph successfully.' do
+  it 'Create a PPTX file with a bar graph successfully.' do
     @presentation.add_bar_chart_slide TestFixture.bar
     @presentation.save 'samples/pptx/sample.pptx'
     expect(@presentation.slides.first.class).to be(OoxmlBuilder::Slide::Bar)

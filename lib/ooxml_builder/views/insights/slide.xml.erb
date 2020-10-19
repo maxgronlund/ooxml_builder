@@ -159,11 +159,11 @@
           <p:nvPr/>
         </p:nvPicPr>
         <p:blipFill>
-          <a:blip r:embed="rId2">
+          <a:blip r:embed="fb-png">
             <a:alphaModFix amt="70000"/>
             <a:extLst>
               <a:ext uri="{96DAC541-7B7A-43D3-8B79-37D633B846F1}">
-                <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="rId3"/>
+                <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="fb-svg"/>
               </a:ext>
             </a:extLst>
           </a:blip>
@@ -292,6 +292,7 @@
         </p:sp>
         <!-- End of row title -->
 
+        <!-- image -->
         <p:pic>
           <p:nvPicPr>
             <p:cNvPr id="68" name="Picture 67" descr="A picture containing drawing&#xA;&#xA;Description automatically generated">
@@ -307,7 +308,7 @@
             <p:nvPr/>
           </p:nvPicPr>
           <p:blipFill>
-            <a:blip r:embed="rId<%=i+4%>"/>
+            <a:blip r:embed="<%=images[1]%>"/>
             <a:stretch>
               <a:fillRect/>
             </a:stretch>
@@ -322,6 +323,7 @@
             </a:prstGeom>
           </p:spPr>
         </p:pic>
+        <!-- end of image -->
 
         <!-- Row subtitle -->
         <p:sp>

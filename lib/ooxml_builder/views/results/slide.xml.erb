@@ -224,10 +224,10 @@
             <p:nvPr/>
           </p:nvPicPr>
           <p:blipFill>
-            <a:blip r:embed="rId<%= icons[i]%>">
+            <a:blip r:embed="<%= images[i]%>-png">
               <a:extLst>
                 <a:ext uri="{96DAC541-7B7A-43D3-8B79-37D633B846F1}">
-                  <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="rId<%= icons[i] + 1 %>"/>
+                  <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="<%= images[i] %>-svg"/>
                 </a:ext>
               </a:extLst>
             </a:blip>
