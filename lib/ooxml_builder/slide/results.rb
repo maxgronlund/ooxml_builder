@@ -1,4 +1,3 @@
-require 'awesome_print'
 require 'fileutils'
 require 'erb'
 
@@ -7,13 +6,14 @@ module OoxmlBuilder
     class Results
       include OoxmlBuilder::Util
 
-      attr_reader :content
+      attr_reader :content, :images, :arrows
 
       def initialize(options = {})
         require_arguments [:content], options
         options.each { |k, v| instance_variable_set("@#{k}", v) }
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
-        ap images
+        arrows
+        images
       end
 
       def save(extract_path, index)
@@ -29,8 +29,8 @@ module OoxmlBuilder
           "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels",
           index: index,
           results: @content[:data],
-          arrows: arrows,
-          images: images
+          arrows: @arrows,
+          images: @images
         )
       end
 
@@ -44,17 +44,17 @@ module OoxmlBuilder
           index: index,
           results: @content[:data],
           suffix: @content[:suffix],
-          arrows: arrows,
-          images: images
+          arrows: @arrows,
+          images: @images
         )
       end
 
       def arrows
-        @content[:data].collect { |a| a[:arrow] }
+        @arrows = @content[:data].collect { |a| a[:arrow] }
       end
 
       def images
-        @content[:data].collect { |a| a[:img] }
+        @images = @content[:data].collect { |a| a[:img] }
 
       end
     end
