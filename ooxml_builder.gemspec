@@ -5,7 +5,7 @@ require 'ooxml_builder/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ooxml_builder"
-  spec.version       = Powerpoint::VERSION
+  spec.version       = OoxmlBuilder::VERSION
   spec.authors       = ["jensmollerhoj"]
   spec.email         = ["jensmollerhoj@gmail.com"]
   spec.description   = %q{A Ruby gem that can create PowerPoint and Excel presentations.}
@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'simplecov'
 
   spec.add_dependency 'rubyzip'
   spec.add_dependency 'fastimage'
