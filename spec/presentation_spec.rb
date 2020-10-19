@@ -1,5 +1,6 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
+require 'awesome_print'
 
 describe 'OoxmlBuilder exporting a sample PPTX file' do
   before(:all) do

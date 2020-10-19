@@ -10,9 +10,6 @@ require 'ooxml_builder/slide/graph'
 require 'ooxml_builder/slide/bar'
 require 'ooxml_builder/workbook'
 
-# require 'simplecov'
-# SimpleCov.start
-
 module OoxmlBuilder
   ROOT_PATH = File.expand_path("../..", __FILE__)
   TEMPLATE_PATH = "#{ROOT_PATH}/template/"

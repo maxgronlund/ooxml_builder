@@ -6,14 +6,13 @@ module OoxmlBuilder
     class Results
       include OoxmlBuilder::Util
 
-      attr_reader :content, :images, :arrows
+      attr_reader :content
 
       def initialize(options = {})
         require_arguments [:content], options
         options.each { |k, v| instance_variable_set("@#{k}", v) }
         @chart = OoxmlBuilder::Chart::Graph.new(presentation: @presentation, content: content)
         arrows
-        images
       end
 
       def save(extract_path, index)
@@ -27,10 +26,7 @@ module OoxmlBuilder
         render_view(
           'results/slide_rel.xml.erb',
           "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels",
-          index: index,
-          results: @content[:data],
-          arrows: @arrows,
-          images: @images
+          index: index, results: @content[:data], arrows: @arrows
         )
       end
 
@@ -44,8 +40,9 @@ module OoxmlBuilder
           index: index,
           results: @content[:data],
           suffix: @content[:suffix],
-          arrows: @arrows,
-          images: @images
+          arrows: arrows,
+          icons: icons,
+          arrows: arrows
         )
       end
 
@@ -53,9 +50,23 @@ module OoxmlBuilder
         @arrows = @content[:data].collect { |a| a[:arrow] }
       end
 
-      def images
-        @images = @content[:data].collect { |a| a[:img] }
-
+      def icons
+        @content[:data].collect do |result|
+          case result[:img]
+          when 'sack-dollar'
+            4
+          when 'users'
+            7
+          when 'rotating-arrows'
+            10
+          when 'dollar-arrow'
+            13
+          when 'app-install'
+            16
+          when 'dollar-app-install'
+            18
+          end
+        end
       end
     end
   end

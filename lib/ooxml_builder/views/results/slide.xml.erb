@@ -224,11 +224,10 @@
             <p:nvPr/>
           </p:nvPicPr>
           <p:blipFill>
-
-            <a:blip r:embed="<%= result[:img] %>-png">
+            <a:blip r:embed="rId<%= icons[i]%>">
               <a:extLst>
                 <a:ext uri="{96DAC541-7B7A-43D3-8B79-37D633B846F1}">
-                  <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="<%= result[:img] %>-svg"/>
+                  <asvg:svgBlip xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="rId<%= icons[i] + 1 %>"/>
                 </a:ext>
               </a:extLst>
             </a:blip>
@@ -394,19 +393,14 @@
       </p:grpSp>
       <% end %>
       <!-- End of frame -->
-
-
-
-      </p:spTree>
-
-
-      <p:extLst>
-        <p:ext uri="{BB962C8B-B14F-4D97-AF65-F5344CB8AC3E}">
-          <p14:creationId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" val="3489529849"/>
-        </p:ext>
-      </p:extLst>
-    </p:cSld>
-    <p:clrMapOvr>
-      <a:masterClrMapping/>
-    </p:clrMapOvr>
-  </p:sld>
+    </p:spTree>
+    <p:extLst>
+      <p:ext uri="{BB962C8B-B14F-4D97-AF65-F5344CB8AC3E}">
+        <p14:creationId xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" val="3489529849"/>
+      </p:ext>
+    </p:extLst>
+  </p:cSld>
+  <p:clrMapOvr>
+    <a:masterClrMapping/>
+  </p:clrMapOvr>
+</p:sld>
