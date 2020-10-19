@@ -5,7 +5,7 @@ require_relative 'test_fixture.rb'
 describe 'suport for graphs ' do
   it 'create a graph chart' do
     presentation = double
-    graph = OoxmlBuilder::Chart::Graph.new(presentation: presentation, content: TestFixture.graph_data)
+    graph = OoxmlBuilder::Chart::Graph.new(presentation: presentation, content: TestFixture.graph)
     expect(graph.class).to be(OoxmlBuilder::Chart::Graph)
   end
 
@@ -22,8 +22,8 @@ describe 'suport for graphs ' do
 
   it 'create a bar chart' do
     presentation = double
-    bar = OoxmlBuilder::Chart::Bar.new(presentation: presentation, content: TestFixture.bar_data)
-    expect(bar.class).to be(OoxmlBuilder::Chart::Bar)
+    bar = OoxmlBuilder::Chart::Bar.new(presentation: presentation, content: TestFixture.bar)
+    expect(bar.class).to be(OoxmlBuilder::Slide::Bar)
   end
 
   it 'save a bar chart' do
