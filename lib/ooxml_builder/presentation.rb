@@ -38,10 +38,12 @@ module OoxmlBuilder
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)
 
-        build_folders(extract_path, SLIDE_FOLDERS)
-        if charts > 1
-          build_folders(extract_path, CHART_FOLDERS)
-        end
+        build_folders(extract_path, charts > 1)
+
+        # build_folders(extract_path, SLIDE_FOLDERS)
+        # if charts > 1
+        #   build_folders(extract_path, CHART_FOLDERS)
+        # end
 
         # Remove keep files
         Dir.glob("#{extract_path}/**/.keep").each do |keep_file|
