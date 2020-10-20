@@ -1,2 +1,3 @@
 samples/pptx/*
+!samples/pptx/.keep
 coverage
