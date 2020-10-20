@@ -17,6 +17,12 @@ module OoxmlBuilder
       raise ArgumentError unless required_argements.all? {|required_key| argements.keys.include? required_key}
     end
 
+    def build_folders(extract_path, folders)
+      folders.each do |folder|
+        FileUtils.mkdir_p "#{extract_path}/#{folder}"
+      end
+    end
+
     private
 
     def read_template(filename)

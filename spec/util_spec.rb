@@ -25,4 +25,14 @@ describe 'Util' do
       expect(result.class).to be(File)
     end
   end
+
+  it 'build folders' do
+    folders = ['some_folder', 'some_other_folder']
+    Dir.mktmpdir do |dir|
+      extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, folders)
+      expect(Dir.exist?("#{extract_path}/some_folder")).to be(true)
+      expect(Dir.exist?("#{extract_path}/some_other_folder")).to be(true)
+    end
+  end
 end

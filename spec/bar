@@ -7,6 +7,6 @@ rspec ./spec/presentation_spec.rb:19
 cd spec
 
 # Uncomment the following two lines to unpack the sample.pptx file
-# ./unpack_output.sh
-# ./unpack_worksheet.sh
+./unpack_output.sh
+./unpack_worksheet.sh
 open ../samples/pptx/sample.pptx

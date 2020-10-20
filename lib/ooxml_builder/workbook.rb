@@ -16,10 +16,14 @@ module OoxmlBuilder
       from_path = "#{OoxmlBuilder::TEMPLATE_PATH}/Microsoft_Excel_Worksheet"
       FileUtils.cp_r(from_path, to_path)
 
+
+
       save_shared_strings(to_path, index)
       save_table(to_path, index)
       save_sheet(to_path, index)
       compress(to_path, index)
+
+      # sleep 20
     end
 
     private

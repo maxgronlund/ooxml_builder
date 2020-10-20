@@ -38,6 +38,11 @@ module OoxmlBuilder
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)
 
+        build_folders(extract_path, SLIDE_FOLDERS)
+        if charts > 1
+          build_folders(extract_path, CHART_FOLDERS)
+        end
+
         # Remove keep files
         Dir.glob("#{extract_path}/**/.keep").each do |keep_file|
           FileUtils.rm_rf(keep_file)
@@ -60,8 +65,10 @@ module OoxmlBuilder
           render_view('chart/style.xml.erb', "#{extract_path}/ppt/charts/style#{index}.xml", index: index)
         end
 
+
+
         # Remove template
-        FileUtils.rm_rf("#{extract_path}/Microsoft_Excel_Worksheet")
+        #FileUtils.rm_rf("#{extract_path}/Microsoft_Excel_Worksheet")
 
         # Create .pptx file
         File.delete(path) if File.exist?(path)

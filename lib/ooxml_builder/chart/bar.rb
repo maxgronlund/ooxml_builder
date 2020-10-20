@@ -1,3 +1,4 @@
+require 'awesome_print'
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
@@ -13,6 +14,7 @@ module OoxmlBuilder
       end
 
       def save(extract_path, index)
+        # ap build_folders(extract_path, CHART_FOLDERS)
         save_rel_xml(extract_path, index)
         save_chart_xml(extract_path, index)
       end
