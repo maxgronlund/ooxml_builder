@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'fileutils'
 require 'erb'
 
 module OoxmlBuilder
   module Slide
+    # Class for building a result slide
     class Results
       include OoxmlBuilder::Util
 
@@ -32,6 +35,12 @@ module OoxmlBuilder
         render_view(
           'results/slide.xml.erb',
           "#{extract_path}/ppt/slides/slide#{index}.xml",
+          params(index)
+        )
+      end
+
+      def params(index)
+        {
           title: @content[:title],
           subtitle: @content[:subtitle],
           period: @content[:period],
@@ -40,7 +49,7 @@ module OoxmlBuilder
           suffix: @content[:suffix],
           arrows: arrows,
           images: images
-        )
+        }
       end
 
       def arrows

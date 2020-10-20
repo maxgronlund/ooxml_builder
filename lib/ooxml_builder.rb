@@ -1,4 +1,4 @@
-require "ooxml_builder/version"
+require 'ooxml_builder/version'
 require 'ooxml_builder/util'
 require 'ooxml_builder/compression'
 require 'ooxml_builder/presentation'
@@ -11,12 +11,12 @@ require 'ooxml_builder/slide/bar'
 require 'ooxml_builder/workbook'
 
 module OoxmlBuilder
-  ROOT_PATH = File.expand_path("../..", __FILE__)
-  TEMPLATE_PATH = "#{ROOT_PATH}/template/"
-  VIEW_PATH = "#{ROOT_PATH}/lib/ooxml_builder/views/"
+  ROOT_PATH = File.expand_path('..', __dir__)
+  TEMPLATE_PATH = "#{ROOT_PATH}/template/".freeze
+  VIEW_PATH = "#{ROOT_PATH}/lib/ooxml_builder/views/".freeze
   CHART_FOLDERS = [
     'ppt/charts/_rels'
-  ]
+  ].freeze
 
   SLIDE_FOLDERS = [
     'ppt/_rels',
@@ -24,5 +24,5 @@ module OoxmlBuilder
     'ppt/embeddings',
     'ppt/slides/_rels',
     'pptx/ppt/charts/_rels'
-  ]
+  ].freeze
 end

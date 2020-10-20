@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OoxmlBuilder
-  VERSION = "1.8"
+  VERSION = '0.9.1'
 end
