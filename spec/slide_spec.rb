@@ -1,8 +1,8 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
+include OoxmlBuilder::Util
 
-
-describe 'create slides ' do
+describe 'create slides' do
   before(:all) do
     @presentation = double
   end
@@ -17,6 +17,7 @@ describe 'create slides ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(graph.save(extract_path, 1).class).to be(File)
     end
@@ -32,6 +33,7 @@ describe 'create slides ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(bar_slide.save(extract_path, 1).class).to be(File)
     end
@@ -47,6 +49,7 @@ describe 'create slides ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(insights_slide.save(extract_path, 1).class).to be(File)
     end
@@ -62,6 +65,7 @@ describe 'create slides ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(results_slide.save(extract_path, 1).class).to be(File)
     end

@@ -1,5 +1,6 @@
 require 'ooxml_builder'
 require_relative 'test_fixture.rb'
+include OoxmlBuilder::Util
 
 
 describe 'suport for graphs ' do
@@ -17,6 +18,7 @@ describe 'suport for graphs ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(graph.save(extract_path, 1).class).to be(File)
     end
@@ -32,7 +34,9 @@ describe 'suport for graphs ' do
 
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
+      FileUtils.mkdir_p "#{extract_path}/ppt/embeddings"
       expect(bar.save(extract_path, 1).class).to be(File)
     end
   end

@@ -38,17 +38,10 @@ module OoxmlBuilder
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)
 
+
+        # Build required folders
         build_folders(extract_path, charts > 1)
 
-        # build_folders(extract_path, SLIDE_FOLDERS)
-        # if charts > 1
-        #   build_folders(extract_path, CHART_FOLDERS)
-        # end
-
-        # Remove keep files
-        Dir.glob("#{extract_path}/**/.keep").each do |keep_file|
-          FileUtils.rm_rf(keep_file)
-        end
 
         # Render/save generic stuff
         render_view('content_type.xml.erb', "#{extract_path}/[Content_Types].xml")

@@ -20,7 +20,9 @@ module OoxmlBuilder
 
   SLIDE_FOLDERS = [
     'ppt/_rels',
+    'ppt/charts',
     'ppt/embeddings',
-    'ppt/slides/_rels'
+    'ppt/slides/_rels',
+    'pptx/ppt/charts/_rels'
   ]
 end
