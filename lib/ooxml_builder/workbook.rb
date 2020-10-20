@@ -3,6 +3,7 @@
 require 'zip/filesystem'
 require 'fileutils'
 require 'tmpdir'
+include OoxmlBuilder::Util
 
 module OoxmlBuilder
   class Workbook

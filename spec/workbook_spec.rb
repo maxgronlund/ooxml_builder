@@ -16,6 +16,7 @@ describe 'suport for workbooks ' do
     workbook = OoxmlBuilder::Workbook.new(presentation: @presentation, content: TestFixture.graph)
     Dir.mktmpdir do |dir|
       extract_path = "#{dir}/extract_#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+      build_folders(extract_path, true)
       FileUtils.copy_entry(OoxmlBuilder::TEMPLATE_PATH, extract_path)
       expect(workbook.save(extract_path, 1).class).to be(Array)
     end
